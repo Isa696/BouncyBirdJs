@@ -1,0 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  background-image: url('./assets/background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+
+#start-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  width: 260px;
+}
+
+h1 {
+  display: none;
+}
+
+.title-img {
+  width: 100%;
+  height: auto;
+}
+
+#classic-mode-btn,
+#restart-button {
+    background-color: #48c774;
+}
+
+button,
+a {
+  padding: 12px 24px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#classic-mode-btn:hover,
+#restart-button:hover{
+  background-color: #36ab63;
+}
+
+#bouncy-mode-btn {
+  background-color: #ffdd57;
+  margin-top: 5px;
+  color: #333;
+  &:hover {
+    background-color: #ffcc00;
+  }
+}
+
+#score-info {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+p {
+  margin: 6px 0;
+}
+
+.credits {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 20px;
+}
+.links {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  &:hover {
+    text-decoration: underline;
+    color: chocolate;
+  }
+}
+
+#canvas-container {
+  position: relative;
+  width: 320px;
+  min-height: 400px;
+  height: 100%;
+  max-height: 512px;
+}
+
+#game-canvas {
+  display: none;
+  background: url('./assets/scene.webp') repeat-x;
+  background-size: cover;
+  animation: scroll-bg 10s linear infinite;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes scroll-bg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1024px 0;
+  }
+}
+
+
+#score-counter {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  z-index: 5;
+  display: none;
+}
+
+#game-over-dialog,
+#bouncy-dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  max-width: 280px;
+}
+
+#game-over-dialog h2 {
+  margin-bottom: 20px;
+  color: #ff4e4e;
+}
+
+#game-over-dialog,
+#bouncy-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 12px;
+  padding: 20px 30px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-family: inherit;
+  font-size: 1rem;
+  background: white;
+  max-width: 280px;
+  z-index: 1000;
+}
+
+/* Fondo oscuro detrás del dialog */
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#back-button {
+  background-color: #ff5c5c; /* rojo suave */
+}
+
+#back-button:hover {
+  background-color: #e04848;
+}
+
+/* Elimina subrayado en el enlace */
+#back-button a {
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dialog-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+/* score style */
+
+#score-counter {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: none;
+  z-index: 10;
+}
+
+#rules-classic-dialog {
+    position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  height: fit-content;
+  width: 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+#rules-classic-dialog img {
+  width: 250px;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.dialog-btn {
+  padding: 10px 20px;
+  background-color: #48c774;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #36ab63;
+  }
+}

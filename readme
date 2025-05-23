@@ -1,0 +1,74 @@
+# 🐦 Bouncy Bird
+
+**Bouncy Bird** es un juego arcade casual inspirado en Flappy Bird, con mecánicas nuevas como rebote, música dinámica y animaciones suaves. Todo desarrollado en **HTML5, CSS3 y JavaScript Vanilla**, sin frameworks.
+
+---
+
+## 🎮 Características
+
+- ✅ Controles responsivos (clic, teclado y táctil)
+- 🔁 Scroll infinito de fondo
+- 🐥 Animaciones por sprites (vuelo, aleteo, muerte)
+- 🧠 Sistema de colisión inteligente con "rebote"
+- 🔊 Música de fondo en menú y juego
+- 🎵 Efectos sonoros dinámicos (flap, rebote, muerte aleatoria)
+- 📱 Adaptado a móviles
+- 💾 Puntaje guardado en `localStorage`
+- 📈 Dificultad progresiva: velocidad y espacio entre tuberías
+
+---
+
+## 🚀 Cómo jugar
+
+- **Espacio / Clic / Toque** para hacer flap
+- Esquiva las tuberías pasando por el hueco
+- Rebota en las esquinas si fallas por poco
+- ¡Supera tu récord y desbloquea el modo difícil! (Próximamente)
+
+---
+
+## 📁 Estructura del proyecto
+
+├── index.html
+├── style.css
+├── js/
+│ ├── main.js
+│ ├── bird.js
+│ ├── pipe.js
+│ ├── game.js
+│ ├── score.js
+│ ├── sound.js
+│ └── input.js
+├── assets/
+│ ├── scene.png
+│ ├── bird.png
+│ ├── pipe.png
+│ ├── sound/
+│ │ ├── menu-song.mp3
+│ │ ├── main-song.ogg
+│ │ ├── flap-sound.mp3
+│ │ ├── bounce-sound.mp3
+│ │ └── death-0.mp3 → death-5.mp3
+
+
+---
+
+## 🧪 Próximas mejoras
+
+- 🎮 Modo Bouncy (en desarrollo)
+- 📲 Publicación en App Stores
+
+---
+
+## ⚠️ Licencia
+
+Código y assets reservados. No redistribuir sin autorización.
+
+> Este proyecto es **privado** por el momento.
+> En el futuro será mostrado públicamente para inspirar a otros desarrolladores.
+
+---
+
+## 🙌 Créditos
+
+Desarrollado con pasión por [Isaias Romero]

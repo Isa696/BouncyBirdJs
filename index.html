@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <title>Bouncy Bird – Juego arcade gratuito</title>
+      <meta name="description" content="Bouncy Bird es un juego arcade divertido donde controlas un pájaro rebotador. ¡Vuela, esquiva y alcanza la mejor puntuación! Juega gratis en tu navegador.">
+      <meta name="keywords" content="bouncy bird, juego flappy bird, juego arcade, juego gratuito, juego navegador, flappy bird clone, juego casual">
+      <meta name="author" content="Isaias Romero" />
+      <link rel="canonical" href="https://tusitio.com/bouncy-bird" />
+
+        <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon.png">
+  <link rel="apple-touch-icon" href="./assets/favicon.png">
+
+  <!-- Open Graph (para compartir en redes sociales) -->
+  <meta property="og:title" content="Bouncy Bird – Juego arcade gratuito" />
+  <meta property="og:description" content="Juega Bouncy Bird, el clon más divertido de Flappy Bird. Rebota, esquiva y llega más lejos. ¡Totalmente gratis y sin descargas!" />
+  <meta property="og:image" content="https://i.imgur.com/pC1RLk1.jpeg" />
+  <meta property="og:url" content="https://tusitio.com/bouncy-bird" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bouncy Bird – Juego arcade gratuito" />
+  <meta name="twitter:description" content="¿Listo para el reto? ¡Vuela y rebota con Bouncy Bird!" />
+  <meta name="twitter:image" content="https://i.imgur.com/pC1RLk1.jpeg" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <div id="start-screen">
+        <h1>Bouncy Bird</h1>
+        <img src="./assets/title-img.png" alt="Bouncy Bird" class="title-img" />
+        <p class="description">
+          ¡Ayuda a nuestro pequeño pájaro a volar! Toca la pantalla para
+          impulsarlo hacia arriba y evita los obstáculos. ¡Diviértete!
+        </p>
+        <button id="classic-mode-btn">Modo clásico</button>
+        <button id="bouncy-mode-btn"
+          onclick="document.getElementById('bouncy-dialog').showModal()"
+        >Modo Bouncy</button>
+        <div id="score-info">
+          <p>Máximo puntaje: <span class="high-score"></span></p>
+          <p>Último puntaje: <span class="last-score"></span></p>
+        </div>
+        <p class="credits">Desarrollado por: <br> <a class="links" href="https://isa696-portfolio.vercel.app/" target="_blank">Isaias Romero</a></p>
+      </div>
+      <div id="canvas-container">
+        <canvas id="game-canvas" width="320" height="512"></canvas>
+        <div id="score-counter">00</div>
+      </div>
+      <dialog id="game-over-dialog">
+        <h2>¡Has perdido!</h2>
+        <button
+          id="restart-button"
+          class="dialog-button"
+          title="Reiniciar juego"
+        >
+          <i class="fas fa-rotate-right"></i>
+        </button>
+        <a href="./index.html" id="back-button" class="dialog-button"
+          ><i class="fas fa-arrow-left"></i
+        ></a>
+        <p>
+          Puntaje: <br />
+          <span class="last-score"></span>
+        </p>
+      </dialog>
+      <dialog id="rules-classic-dialog">
+        <img src="./assets/rules-classic.png" alt="Reglas del juego" />
+        <button id="close-rules-classic" class="dialog-btn">¡Entendido!</button>
+      </dialog>
+<dialog id="bouncy-dialog">
+  <h2>Modo Bouncy</h2>
+  <p>
+    Muy pronto!!! <br />
+    en appstores
+  </p>
+  <form method="dialog">
+    <button class="dialog-btn">
+      Volver <i class="fas fa-arrow-left"></i>
+    </button>
+  </form>
+</dialog>
+
+    </main>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

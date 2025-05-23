@@ -17,6 +17,7 @@ window.addEventListener("load", () => {
 
 classicModeBtn.addEventListener("click", () => {
   tutorialDialog.showModal();
+  playMenuMusic();
 });
 
 closeTutorialBtn.addEventListener("click", () => {

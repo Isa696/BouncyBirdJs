@@ -53,6 +53,7 @@ export function drawBird(ctx) {
 }
 
 export function flap(direction = 1) {
+  if (!bird || !bird.alive) return;
   if (bird.alive) {
     bird.velocity = direction * lift;
 

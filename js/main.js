@@ -36,3 +36,11 @@ document.getElementById("restart-button").addEventListener("click", () => {
 });
 
 setupInput();
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const tooltip = document.getElementById('fullscreen-tooltip');
+    tooltip.classList.add('show');
+    setTimeout(() => {
+      tooltip.classList.remove('show');
+    }, 2000);
+  });

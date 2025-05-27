@@ -74,7 +74,7 @@ document.getElementById("buy-or-select").onclick = () => {
       localStorage.setItem("totalSeeds", totalSeeds - bird.price);
       showShopTooltip("¡Pájaro desbloqueado!");
       renderShop();
-    } else {
+      location.reload();    } else {
       showShopTooltip("No tienes suficientes semillas.");
     }
   }

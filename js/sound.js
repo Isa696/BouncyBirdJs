@@ -18,7 +18,7 @@ export function initAudio() {
     deathSounds.push(audio);
   }
     for (let i = 0; i <= 2; i++) {
-    const audio = new Audio(`./assets/sound/0${i}_seed-fade-out.mp3`);
+    const audio = new Audio(`./assets/sound/0${i}_seed-fade-out.MP3`);
     audio.volume = 0.8;
     seedFadeOut.push(audio);
   }

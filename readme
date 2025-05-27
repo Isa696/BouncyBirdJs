@@ -41,7 +41,7 @@
 │ └── input.js
 ├── assets/
 │ ├── scene.png
-│ ├── bird.png
+│ ├── bouncy.png
 │ ├── pipe.png
 │ ├── sound/
 │ │ ├── menu-song.mp3

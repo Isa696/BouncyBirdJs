@@ -4,6 +4,7 @@ let flapAudio = null;
 let bounceAudio = null;
 let bounceTimeout = null;
 let deathSounds = [];
+let seedFadeOut = []
 
 export function initAudio() {
   menuAudio = new Audio('./assets/sound/menu-song.mp3');
@@ -16,6 +17,11 @@ export function initAudio() {
     audio.volume = 1;
     deathSounds.push(audio);
   }
+    for (let i = 0; i <= 2; i++) {
+    const audio = new Audio(`./assets/sound/0${i}_seed-fade-out.mp3`);
+    audio.volume = 0.8;
+    seedFadeOut.push(audio);
+  }
 
 
   menuAudio.loop = true;
@@ -23,8 +29,8 @@ export function initAudio() {
 
   menuAudio.volume = 0.4;
   gameAudio.volume = 0.5;
-  flapAudio.volume = 0.6;
-    bounceAudio.volume = 0.5;
+  flapAudio.volume = 0.75;
+  bounceAudio.volume = 0.75;
 }
 
 export function playMenuMusic() {
@@ -89,6 +95,21 @@ export function playRandomDeathSound() {
 
   const randomIndex = Math.floor(Math.random() * deathSounds.length);
   const chosenSound = deathSounds[randomIndex];
+
+  chosenSound.play().catch(() => {});
+}
+
+export function playSeedFadeOutSound() {
+  if (seedFadeOut.length === 0) return;
+
+  // Detener cualquier otro sonido de fade out que esté sonando
+  for (let sound of seedFadeOut) {
+    sound.pause();
+    sound.currentTime = 0;
+  }
+
+  const randomIndex = Math.floor(Math.random() * seedFadeOut.length);
+  const chosenSound = seedFadeOut[randomIndex];
 
   chosenSound.play().catch(() => {});
 }

@@ -1,10 +1,14 @@
 import { playFlapSound } from './sound.js';
+import { birds } from './shop.js';
 
 let bird;
 let gravity = 0.5;
 let lift = -8;
 
 export function createBird() {
+    const selectedIndex = parseInt(localStorage.getItem('selectedBird')) || 0;
+  const selectedBird = birds[selectedIndex] || birds[0];
+
   bird = {
     x: 50,
     y: 150,
@@ -15,7 +19,7 @@ export function createBird() {
     sprite: new Image(),
     isFlapping: false,
   };
-  bird.sprite.src = './assets/bird.png';
+  bird.sprite.src = selectedBird.src;
   window.bird = bird;
 }
 
@@ -32,17 +36,17 @@ export function drawBird(ctx) {
   let sx, sy;
 
   if (!bird.alive) {
-    sx = 142;
-    sy = 266;
+    sx = 400;
+    sy = 108;
   } else if (bird.isFlapping) {
-    sx = 255;
-    sy = 78;
+    sx = 211;
+    sy = 108;
   } else {
-    sx = 19;
-    sy = 68;
+    sx = 12;
+    sy = 108;
   }
-  const sw = 209;
-  const sh = 186;
+  const sw = 200;
+  const sh = 196;
 
   ctx.drawImage(
     bird.sprite,

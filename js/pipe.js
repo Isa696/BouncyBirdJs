@@ -1,6 +1,7 @@
 import { flap } from './bird.js';
 import { getScore } from './score.js';
 import { playBounceSound } from './sound.js';
+import { spawnSeed } from './seeds.js';
 
 let pipes = [];
 let pipeGap = 200;
@@ -35,6 +36,11 @@ export function createPipes() {
   ];
 }
 
+export function getPipeSpeed() {
+  const baseSpeed = 2;
+  return Math.min(baseSpeed + getScore() / 250, 10);
+}
+// Aumentar la velocidad de los tubos con el tiempo
 export function updatePipes() {
     if (getScore() >= 500) {
   pipeGap = 175;
@@ -48,18 +54,25 @@ export function updatePipes() {
     if (getScore() >= 1500) {
   pipeGap = 80;
 }
-// Aumentar la velocidad de los tubos con el tiempo
-const baseSpeed = 2;
-const pipeSpeed = Math.min(baseSpeed + getScore() / 250, 10);
 
 for (let pipe of pipes) {
-  pipe.x -= pipeSpeed;
+  pipe.x -= getPipeSpeed();
 }
 
+const horizontalPipeSpacing = 300;
 
-  if (pipes[pipes.length - 1].x < 150) {
-    pipes.push({ x: 450, height: randomHeight() });
+if (pipes[pipes.length - 1].x < 150) {
+  const newX = pipes[pipes.length - 1].x + horizontalPipeSpacing;
+  const newHeight = randomHeight();
+
+  pipes.push({ x: newX, height: newHeight });
+
+  if (pipes.length >= 2) {
+    const prevPipe = pipes[pipes.length - 2];
+    spawnSeed(prevPipe.x, prevPipe.height, pipeGap, pipeWidth, horizontalPipeSpacing);
   }
+}
+
 
   if (pipes[0].x + pipeWidth < 0) {
     pipes.shift();

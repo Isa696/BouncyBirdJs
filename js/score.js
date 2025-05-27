@@ -59,6 +59,4 @@ export function updateStoredScoresUI() {
   document.querySelectorAll('.high-score').forEach(el => {
     el.textContent = highScore;
   });
-//   if (lastSpan) lastSpan.textContent = lastScore;
-//   if (highSpan) highSpan.textContent = highScore;
 }

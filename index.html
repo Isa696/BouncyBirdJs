@@ -40,25 +40,48 @@
   <body>
     <main>
       <div id="start-screen">
-        <h1>Bouncy Bird</h1>
-        <img src="./assets/title-img.png" alt="Bouncy Bird" class="title-img" />
-        <p class="description">
-          ¡Ayuda a nuestro pequeño pájaro a volar! Toca la pantalla para
+
+        <div id="main-menu">
+          <h1>Bouncy Bird</h1>
+          <img src="./assets/title-img.png" alt="Bouncy Bird" class="title-img" />
+          <p class="description">
+            ¡Ayuda a nuestro pequeño pájaro a volar! Toca la pantalla para
           impulsarlo hacia arriba y evita los obstáculos. ¡Diviértete!
         </p>
         <button id="classic-mode-btn">Modo clásico</button>
         <button id="bouncy-mode-btn"
-          onclick="document.getElementById('bouncy-dialog').showModal()"
+        onclick="document.getElementById('bouncy-dialog').showModal()"
         >Modo Bouncy</button>
         <div id="score-info">
           <p>Máximo puntaje: <span class="high-score"></span></p>
           <p>Último puntaje: <span class="last-score"></span></p>
         </div>
+        <button id="open-shop-btn">Tienda</button>
         <p class="credits">Desarrollado por: <br> <a class="links" href="https://isa696-portfolio.vercel.app/" target="_blank">Isaias Romero</a></p>
+      </div>
+      
+      <div id="shop-screen" style="display: none;">
+  <h2>🛒 Tienda</h2>
+  <div class="shop-container">
+    <p>Selecciona un pájaro:</p>
+    <div id="bird-preview">
+      <button class="button" id="prev-bird">←</button>
+      <img id="shop-bird-img" src="./assets/bouncy.png" width="100" />
+      <button class="button" id="next-bird">→</button>
+    </div>
+      <button class="button" id="buy-or-select">Seleccionar</button>
+      <p id="bird-name">Bouncy</p>
+      <p id="bird-price">Gratis</p>
+  </div>
+
+  <button class="button" id="back-to-menu">Volver</button>
+</div>
+
       </div>
       <div id="canvas-container">
         <canvas id="game-canvas" width="320" height="512"></canvas>
         <div id="score-counter">00</div>
+        <div id="seeds-counter">00 <img src="./assets/seed/03_seed.png" alt="Semillas recolectadas" class="seed-icon"></div>
       </div>
       <dialog id="game-over-dialog">
         <h2>¡Has perdido!</h2>
@@ -84,8 +107,7 @@
 <dialog id="bouncy-dialog">
   <h2>Modo Bouncy</h2>
   <p>
-    Muy pronto!!! <br />
-    en appstores
+    Muy pronto!!!
   </p>
   <form method="dialog">
     <button class="dialog-btn">
@@ -96,6 +118,7 @@
 
     </main>
     <div id="fullscreen-tooltip">F11 pantalla completa</div>
+    <div id="shop-tooltip"></div>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>

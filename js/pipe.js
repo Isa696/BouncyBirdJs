@@ -93,7 +93,7 @@ for (let pipe of pipes) {
 
   if (collidesX) {
     const pipeCenter = pipeLeft + pipeWidth / 2;
-    const allowedReboundWidth = 60;
+    const allowedReboundWidth = 100;
     const birdCenter = birdLeft + bird.width / 2;
     const withinReboundZone = Math.abs(birdCenter - pipeCenter) < allowedReboundWidth / 2;
 

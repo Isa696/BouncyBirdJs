@@ -79,7 +79,6 @@ if (pipes[pipes.length - 1].x < 150) {
   }
 
 const bird = window.bird;
-const Bounce = 10;
 
 for (let pipe of pipes) {
   const pipeLeft = pipe.x;
@@ -92,37 +91,36 @@ for (let pipe of pipes) {
 
   const collidesX = birdRight > pipeLeft && birdLeft < pipeRight;
 
-  const upperCornerStart = pipe.height - Bounce;
-  const upperCornerEnd = pipe.height;
-
-  const lowerCornerStart = pipe.height + pipeGap;
-  const lowerCornerEnd = pipe.height + pipeGap + Bounce;
-
-  const hitsUpperCorner = birdBottom > upperCornerStart && birdTop < upperCornerEnd;
-  const hitsLowerCorner = birdTop < lowerCornerEnd && birdBottom > lowerCornerStart;
-
   if (collidesX) {
-    if (hitsUpperCorner) {
-      flap(-0.5); // rebota hacia abajo
-      playBounceSound(0.4, 1);
-      continue;
+    const pipeCenter = pipeLeft + pipeWidth / 2;
+    const allowedReboundWidth = 60;
+    const birdCenter = birdLeft + bird.width / 2;
+    const withinReboundZone = Math.abs(birdCenter - pipeCenter) < allowedReboundWidth / 2;
+
+    const hitsTop = birdTop < pipe.height;
+    const hitsBottom = birdBottom > pipe.height + pipeGap;
+
+    if (withinReboundZone) {
+      if (hitsTop) {
+        flap(-0.5);
+        playBounceSound(0.4, 1);
+        continue;
+      }
+
+      if (hitsBottom) {
+        flap(1);
+        playBounceSound(0.2, 0.5);
+        continue;
+      }
     }
 
-    if (hitsLowerCorner) {
-      flap(1); // rebota hacia arriba
-      playBounceSound(0.2, 0.5);
-      continue;
-    }
-
-    // Cualquier otra colisión fuera de las esquinas = muerte
-    const hitsPipe =
-      birdTop < pipe.height || birdBottom > pipe.height + pipeGap;
-
-    if (hitsPipe) {
+    // Cualquier otra colisión es muerte
+    if (hitsTop || hitsBottom) {
       bird.alive = false;
     }
   }
 }
+
 
 }
 
